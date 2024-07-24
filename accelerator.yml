@@ -13,7 +13,6 @@ accelerator:
   imports:
     - name: tap-workload
   options:
-
   - name: addSpringAI
     label: Use Spring AI development framework
     inputType: checkbox
@@ -53,8 +52,7 @@ accelerator:
     dataType: boolean
     defaultValue: false
     dependsOn:
-      name: addPrompt
-  
+      name: addPrompt  
   - name: llm
     label: LLM models selection
     required: true
@@ -67,11 +65,10 @@ accelerator:
         text: Use custom chat model (will require to modify your applications settings)
       - value: embeddingCustom
         text: Use custom embedding model (will require to modify your applications settings)
-
   - name: addAIMiddleware
     label: Add AI middleware capabilities
     inputType: checkbox
-    display: true
+    #display: true
     dataType: boolean
     defaultValue: false
   - name: addAIObservability
@@ -95,7 +92,6 @@ accelerator:
     defaultValue: false
     dependsOn:
       name: addAIMiddleware
-
   - name: runtime
     label: Deployment Runtime 
     required: true
@@ -107,12 +103,10 @@ accelerator:
       - value: tpk8s
         text: Tanzu Platform for K8s
       - value: tpVCF
-        text: Taznu Platform with VCF Private AI
-
-  
+        text: Taznu Platform with VCF Private AI  
 
 engine:
-  chain:
+#  chain:
     - merge:
         - include: [ "**/*" ]
           exclude: [ "config/*.yaml", "Tiltfile", "README.md", "catalog/*.yaml", ".github/workflows/**" ]
@@ -149,4 +143,4 @@ engine:
                 - text: openai
                   with: "#artifactId"
 
-    - type: Provenance
+#    - type: Provenance
