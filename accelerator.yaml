@@ -3,13 +3,17 @@ accelerator:
   description: Accelerator for creating GenAI RAG application using Spring AI and Tanzu Platform
   iconUrl: https://raw.githubusercontent.com/cpage-pivotal/dallecool/main/config/ai.png
   tags:
-  - java
-  - spring
-  - cloud-native-devs
-  - openai
-  - llm
-  - spring-ai
+    - java
+    - spring
+    - cloud-native-devs
+    - openai
+    - llm
+    - spring-ai
+
+  imports:
+    - name: tap-workload
   options:
+
   - name: addSpringAI
     label: Use Spring AI development framework
     inputType: checkbox
@@ -50,6 +54,7 @@ accelerator:
     defaultValue: false
     dependsOn:
       name: addPrompt
+  
   - name: llm
     label: LLM models selection
     required: true
@@ -62,10 +67,11 @@ accelerator:
         text: Use custom chat model (will require to modify your applications settings)
       - value: embeddingCustom
         text: Use custom embedding model (will require to modify your applications settings)
+
   - name: addAIMiddleware
     label: Add AI middleware capabilities
     inputType: checkbox
-    #display: true
+    display: true
     dataType: boolean
     defaultValue: false
   - name: addAIObservability
@@ -89,6 +95,7 @@ accelerator:
     defaultValue: false
     dependsOn:
       name: addAIMiddleware
+
   - name: runtime
     label: Deployment Runtime 
     required: true
@@ -102,8 +109,7 @@ accelerator:
       - value: tpVCF
         text: Taznu Platform with VCF Private AI
 
-  imports:
-    - name: tap-workload
+  
 
 engine:
   chain:
