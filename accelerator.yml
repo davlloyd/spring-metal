@@ -1,14 +1,12 @@
 accelerator:
-  displayName: GenAi RAG application with Tanzu Platform
-  description: Accelerator for creating GenAI RAG application using Spring AI and Tanzu Platform
-  iconUrl: https://raw.githubusercontent.com/cpage-pivotal/dallecool/main/config/ai.png
+  displayName: Deckel test
+  description: Contains the Surfers system python-flask scafolding for a new module
+  iconUrl: https://raw.githubusercontent.com/davlloyd/surfers-flask-accelerator/main/main/static/images/surfing-web-icon.png
   tags:
-  - java
-  - spring
-  - cloud-native-devs
-  - openai
-  - llm
-  - spring-ai
+  - surferslookout
+  - python
+  - web
+  - tanzu
   options:
   - name: repositoryPrefix
     inputType: text
