@@ -1,16 +1,15 @@
 accelerator:
   displayName: GenAi RAG application with Tanzu Platform
   description: Accelerator for creating GenAI RAG application using Spring AI and Tanzu Platform
-  #iconUrl: https://raw.githubusercontent.com/cpage-pivotal/dallecool/main/config/ai.png
   iconUrl: https://raw.githubusercontent.com/davlloyd/surfers-flask-accelerator/main/main/static/images/surfing-web-icon.png
+  #iconUrl: https://raw.githubusercontent.com/cpage-pivotal/dallecool/main/config/ai.png
   tags:
-    - java
-    - spring
-    - cloud-native-devs
-    - openai
-    - llm
-    - spring-ai
-
+  - java
+  - spring
+  - cloud-native-devs
+  - openai
+  - llm
+  - spring-ai
 #  imports:
 #    - name: tap-workload
   options:
