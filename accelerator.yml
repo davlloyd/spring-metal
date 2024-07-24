@@ -17,93 +17,93 @@ accelerator:
     label: Use Spring AI development framework
     inputType: checkbox
 #    display: true
-    dataType: boolean
+#    dataType: boolean
     defaultValue: false
-  - name: addVectorStore
-    label: Auto configure vector store initializer based on the type of vectorDB bound into the app
-    inputType: checkbox
-    dataType: boolean
-    defaultValue: false
-    dependsOn:
-      name: addSpringAI
-  - name: addPrompt
-    label: Add prompt message retriever and context document
-    inputType: checkbox
-    dataType: boolean
-    defaultValue: false
-    dependsOn:
-      name: addSpringAI
-  - name: idkOptions
-    label: Response behavior for unknown results 
-    inputType: select
-    defaultValue: idk
-    choices:
-      - value: idk
-        text: State you do not know
-      - value: model
-        text: Pass through model best guess reply
-      - value: idkModel
-        text: State you do not know AND pass through model best guess reply
-    dependsOn:
-      name: addPrompt
-  - name: addDocuments
-    label: Always add relevant documents at the end of the reply
-    inputType: checkbox
-    dataType: boolean
-    defaultValue: false
-    dependsOn:
-      name: addPrompt  
-  - name: llm
-    label: LLM models selection
-    required: true
-    defaultValue: "platform"
-    inputType: select
-    choices:
-      - value: platform
-        text: Use the chat and embeddings models as defined in the platform marketplace
-      - value: chatCustom
-        text: Use custom chat model (will require to modify your applications settings)
-      - value: embeddingCustom
-        text: Use custom embedding model (will require to modify your applications settings)
-  - name: addAIMiddleware
-    label: Add AI middleware capabilities
-    inputType: checkbox
-    #display: true
-    dataType: boolean
-    defaultValue: false
-  - name: addAIObservability
-    label: Add app observability auto configurations
-    inputType: checkbox
-    dataType: boolean
-    defaultValue: false
-    dependsOn:
-      name: addAIMiddleware
-  - name: addAPIGW
-    label: Add API Gateway with model's token rate limiting support
-    inputType: checkbox
-    dataType: boolean
-    defaultValue: false
-    dependsOn:
-      name: addAIMiddleware
-  - name: addFIPS
-    label: Add FIPS complaince
-    inputType: checkbox
-    dataType: boolean
-    defaultValue: false
-    dependsOn:
-      name: addAIMiddleware
-  - name: runtime
-    label: Deployment Runtime 
-    required: true
-    defaultValue: tpcf
-    inputType: select
-    choices:
-      - value: tpcf
-        text: Tanzu Platform for Cloud Foundry
-      - value: tpk8s
-        text: Tanzu Platform for K8s
-      - value: tpVCF
-        text: Taznu Platform with VCF Private AI  
+  # - name: addVectorStore
+  #   label: Auto configure vector store initializer based on the type of vectorDB bound into the app
+  #   inputType: checkbox
+  #   dataType: boolean
+  #   defaultValue: false
+  #   dependsOn:
+  #     name: addSpringAI
+  # - name: addPrompt
+  #   label: Add prompt message retriever and context document
+  #   inputType: checkbox
+  #   dataType: boolean
+  #   defaultValue: false
+  #   dependsOn:
+  #     name: addSpringAI
+  # - name: idkOptions
+  #   label: Response behavior for unknown results 
+  #   inputType: select
+  #   defaultValue: idk
+  #   choices:
+  #     - value: idk
+  #       text: State you do not know
+  #     - value: model
+  #       text: Pass through model best guess reply
+  #     - value: idkModel
+  #       text: State you do not know AND pass through model best guess reply
+  #   dependsOn:
+  #     name: addPrompt
+  # - name: addDocuments
+  #   label: Always add relevant documents at the end of the reply
+  #   inputType: checkbox
+  #   dataType: boolean
+  #   defaultValue: false
+  #   dependsOn:
+  #     name: addPrompt  
+  # - name: llm
+  #   label: LLM models selection
+  #   required: true
+  #   defaultValue: "platform"
+  #   inputType: select
+  #   choices:
+  #     - value: platform
+  #       text: Use the chat and embeddings models as defined in the platform marketplace
+  #     - value: chatCustom
+  #       text: Use custom chat model (will require to modify your applications settings)
+  #     - value: embeddingCustom
+  #       text: Use custom embedding model (will require to modify your applications settings)
+  # - name: addAIMiddleware
+  #   label: Add AI middleware capabilities
+  #   inputType: checkbox
+  #   #display: true
+  #   dataType: boolean
+  #   defaultValue: false
+  # - name: addAIObservability
+  #   label: Add app observability auto configurations
+  #   inputType: checkbox
+  #   dataType: boolean
+  #   defaultValue: false
+  #   dependsOn:
+  #     name: addAIMiddleware
+  # - name: addAPIGW
+  #   label: Add API Gateway with model's token rate limiting support
+  #   inputType: checkbox
+  #   dataType: boolean
+  #   defaultValue: false
+  #   dependsOn:
+  #     name: addAIMiddleware
+  # - name: addFIPS
+  #   label: Add FIPS complaince
+  #   inputType: checkbox
+  #   dataType: boolean
+  #   defaultValue: false
+  #   dependsOn:
+  #     name: addAIMiddleware
+  # - name: runtime
+  #   label: Deployment Runtime 
+  #   required: true
+  #   defaultValue: tpcf
+  #   inputType: select
+  #   choices:
+  #     - value: tpcf
+  #       text: Tanzu Platform for Cloud Foundry
+  #     - value: tpk8s
+  #       text: Tanzu Platform for K8s
+  #     - value: tpVCF
+  #       text: Taznu Platform with VCF Private AI  
 
 # engine:
 # #  chain:
