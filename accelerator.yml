@@ -10,13 +10,13 @@ accelerator:
     - llm
     - spring-ai
 
-  imports:
-    - name: tap-workload
+#  imports:
+#    - name: tap-workload
   options:
   - name: addSpringAI
     label: Use Spring AI development framework
     inputType: checkbox
-    display: true
+#    display: true
     dataType: boolean
     defaultValue: false
   - name: addVectorStore
