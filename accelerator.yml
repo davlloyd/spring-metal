@@ -51,7 +51,6 @@ accelerator:
     dependsOn:
       name: gitopsEnabled
 
-
   imports:
     - name: tap-workload
 
