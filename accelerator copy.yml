@@ -106,94 +106,41 @@ accelerator:
     - name: tap-workload
 
 engine:
-  merge:
-  - include: [ "**/*" ]
-    exclude: [ "config/*.yaml", "Tiltfile", "README.md", "catalog/*.yaml", "docs/*.md", ".vscode/*.json", "techdocs_publish.sh" ]
-
-  - include: [  "docs/*.md" ]
-    chain:
-    - type: ReplaceText
-      substitutions:
-      - text: SurfersFlaskAccelerator
-        with: "#artifactId"
-      - text: surfersflaskaccelerator
-        with: "#artifactId"
-      - text: surfers-flask-accelerator
-        with: "#artifactId"
-
-  - include: [ ".vscode/*.json" ]
-    chain:
-    - type: ReplaceText
-      substitutions:
-      - text: "Flask Accelerator"
-        with: "#artifactId"
-      - text: surfersflaskaccelerator
-        with: "#artifactId.toLowerCase()"
-      - text: surfers-flask-accelerator
-        with: "#artifactId.toLowerCase()"
-      - text: "docker.io/project"
-        with: "#repositoryPrefix"
-
-
-  - include: [ "Tiltfile" ]
-    chain:
-    - type: ReplaceText
-      substitutions:
-      - text: surfersflaskaccelerator
-        with: "#artifactId.toLowerCase()"
-      - text: "docker.io/project"
-        with: "#repositoryPrefix"
-
-  - include: [ "config/*.yaml" ]
-    chain:
-    - type: ReplaceText
-      condition: "#gitopsEnabled"
-      substitutions:
-      - text: "gitopsaccountname"
-        with: "#gitopsAccount.toLowerCase()"
-      - text: "gitopsemailaddress"
-        with: "#gitopsEmail.toLowerCase()"
-    - type: ReplaceText
-      substitutions:
-      - text: "surferslookout"
-        with: "#systemName.toLowerCase()"
-      - text: ": surfersflaskaccelerator"
-        with: "': ' + #artifactId.toLowerCase()"
-      - text: ": surfers-flask-accelerator"
-        with: "': ' + #artifactId.toLowerCase()"
-      - text: "value: blue"
-        with: "'value: ' + #pageColor"
+  chain:
     - merge:
-        - type: InvokeFragment
-          reference: tap-workload
-        - include: [ "**" ]
-      onConflict: UseFirst
+        - include: [ "**/*" ]
+          exclude: [ "config/*.yaml", "Tiltfile", "README.md", "catalog/*.yaml", ".github/workflows/**" ]
+        - include: [ "Tiltfile" ]
+          chain:
+            - type: ReplaceText
+              substitutions:
+                - text: openai
+                  with: "#artifactId.toLowerCase()"
 
-  - include: [ "README.md" ]
-    chain:
-    - type: ReplaceText
-      substitutions:
-      - text: SurfersFlaskAccelerator
-        with: "#artifactId"
-      - text: surfersflaskaccelerator
-        with: "#artifactId"
-      - text: surfers-flask-accelerator
-        with: "#artifactId"
+        - include: [ "config/*.yaml" ]
+          chain:
+            - type: ReplaceText
+              substitutions:
+                - text: ": openai"
+                  with: "': ' + #artifactId.toLowerCase()"
+            - merge:
+                - type: InvokeFragment
+                  reference: tap-workload
+                - include: [ "**" ]
+              onConflict: UseFirst
 
-  - include: [ "catalog/*.yaml" ]
-    chain:
-    - type: ReplaceText
-      substitutions:
-      - text: surfersflaskaccelerator
-        with: "#artifactId"
-      - text: surfers-flask-accelerator
-        with: "#artifactId"
+        - include: [ "README.md" ]
+          chain:
+            - type: ReplaceText
+              substitutions:
+                - text: openai
+                  with: "#artifactId"
 
-  - include: [ "techdocs_publish.sh" ]
-    chain:
-    - type: ReplaceText
-      substitutions:
-      - text: surfersflaskaccelerator
-        with: "#artifactId"
-      - text: surfers-flask-accelerator
-        with: "#artifactId"
+        - include: [ "catalog/*.yaml" ]
+          chain:
+            - type: ReplaceText
+              substitutions:
+                - text: openai
+                  with: "#artifactId"
+
+    - type: Provenance
